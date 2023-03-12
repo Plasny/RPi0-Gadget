@@ -1,0 +1,12 @@
+[Unit]
+Description=USB Gadget setup service
+Requires=getty@ttyGS0.service systemd-modules-load.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/local/bin/gadget.sh start
+ExecStop=/usr/local/bin/gadget.sh stop
+
+[Install]
+WantedBy=multi-user.target
